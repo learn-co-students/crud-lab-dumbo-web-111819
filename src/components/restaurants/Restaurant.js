@@ -3,7 +3,9 @@ import ReviewsContainer from '../../containers/ReviewsContainer'
 
 class Restaurant extends Component {
 
-
+  onClickDelete = (e) => {
+    this.props.deleteRestaurant(this.props.restaurant.id)
+  }
   render() {
     const { restaurant } = this.props;
 
@@ -11,12 +13,14 @@ class Restaurant extends Component {
       <div>
         <li>
           {restaurant.text}
-          <button> X </button>
+          <button onClick= {this.onClickDelete}> X </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
     );
   }
 };
+
+
 
 export default Restaurant;
